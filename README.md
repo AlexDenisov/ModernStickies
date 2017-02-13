@@ -14,7 +14,13 @@ If you decide to use it - make a backup copy.
 
 ### Usage
 
-Simply run `make patch`. After that you will have the following change:
+Stickies.app is part of OS X distribution. It means that there us no way you
+can modify, rename, or delete the app.
+
+I recommend to make a copy of the app, call it `Modern Stickies.app`, and then
+simply run `make patch`.
+
+Open the Modern Stickies.app and voilà:
 
 <img src="/colors.png" width=50% />
 

@@ -1,4 +1,4 @@
-BINARY_PATH=/tmp/Stickies\ Hack.app/Contents/MacOS/Stickies
+BINARY_PATH=/Applications/Modern\ Stickies.app/Contents/MacOS/Stickies
 
 patch: build
 	./modern_stickies $(BINARY_PATH)
