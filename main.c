@@ -204,7 +204,6 @@ theme gray_theme() {
   t.border_color = rgb(188, 188, 188);
 
   return t;
-
 }
 
 void apply_themes(FILE *binary) {
@@ -221,6 +220,17 @@ color red_color() {
   return c;
 }
 
+theme debug_theme() {
+  theme t = default_yellow_theme();
+
+  /* t.background_color = red_color(); */
+  /* t.window_title_color = red_color(); */
+  /* t.icon_color = red_color(); */
+  /* t.border_color = red_color(); */
+
+  return t;
+}
+
 int main(int argc, char **argv) {
   const char *binary_path = argv[1];
   FILE *binary = fopen(binary_path, "r+b");
@@ -230,7 +240,7 @@ int main(int argc, char **argv) {
   }
 
   apply_themes(binary);
-  /* apply_theme(0, yellow_theme(), binary); */
+  /* apply_theme(0, debug_theme(), binary); */
 
   fclose(binary);
 
