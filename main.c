@@ -9,6 +9,13 @@ typedef struct {
   double blue;
 } color;
 
+color rgb(const unsigned char red,
+          const unsigned char green,
+          const unsigned char blue) {
+  color c = { red / 255.0, green / 255.0, blue / 255.0 };
+  return c;
+}
+
 typedef struct {
   color background_color;
   color border_color;
@@ -123,6 +130,92 @@ void apply_default_themes(FILE *binary) {
   apply_theme(5, default_gray_theme(), binary);
 }
 
+/// Non Default Themes
+
+theme yellow_theme() {
+  theme t;
+
+  t.background_color = rgb(244, 247, 247);
+  t.window_title_color = rgb(255, 225, 12);
+  t.icon_color = t.window_title_color;
+  t.border_color = t.window_title_color;
+
+  return t;
+}
+
+theme blue_theme() {
+  /// http://www.colourlovers.com/palette/15/tech_light
+  theme t;
+
+  t.background_color = rgb(255, 255, 255);
+  t.window_title_color = rgb(38, 173, 228);
+  t.icon_color = t.window_title_color;
+  t.border_color = rgb(77, 188, 233);
+
+  return t;
+}
+
+theme green_theme() {
+  /// http://www.colourlovers.com/palette/15/tech_light
+  theme t;
+
+  t.background_color = rgb(255, 255, 255);
+  t.window_title_color = rgb(174, 226, 57);
+  t.icon_color = t.window_title_color;
+  t.border_color = rgb(143, 190, 0);
+
+  return t;
+
+}
+
+theme pink_theme() {
+  /// http://www.colourlovers.com/palette/5079/Hibiscus
+  theme t;
+
+  t.background_color = rgb(255, 255, 255);
+  t.window_title_color = rgb(255,84,117);
+  t.icon_color = t.window_title_color;
+  t.border_color = t.window_title_color;
+
+  return t;
+
+}
+
+theme purple_theme() {
+  /// http://www.colourlovers.com/palette/7315/Pop_Is_Everything
+  theme t;
+
+  t.background_color = rgb(255, 255, 255);
+  t.window_title_color = rgb(170,0,255);
+  t.icon_color = t.window_title_color;
+  t.border_color = t.window_title_color;
+
+  return t;
+
+}
+
+theme gray_theme() {
+  /// http://www.colourlovers.com/palette/148712/Gamebookers
+  theme t;
+
+  t.background_color = rgb(233, 233, 233);
+  t.window_title_color = rgb(66, 66, 66);
+  t.icon_color = t.window_title_color;
+  t.border_color = rgb(188, 188, 188);
+
+  return t;
+
+}
+
+void apply_themes(FILE *binary) {
+  apply_theme(0, yellow_theme(), binary);
+  apply_theme(1, blue_theme(), binary);
+  apply_theme(2, green_theme(), binary);
+  apply_theme(3, pink_theme(), binary);
+  apply_theme(4, purple_theme(), binary);
+  apply_theme(5, gray_theme(), binary);
+}
+
 color red_color() {
   color c = { 1, 0, 0 };
   return c;
@@ -136,7 +229,8 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  apply_default_themes(binary);
+  apply_themes(binary);
+  /* apply_theme(0, yellow_theme(), binary); */
 
   fclose(binary);
 
