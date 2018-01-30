@@ -23,7 +23,7 @@ typedef struct {
   color icon_color;
 } theme;
 
-static const int ColorBase = 0x0000c790;
+static const int ColorBase = 0x0000c240;
 
 void dump_color(const char *name, const color c) {
   printf("%s:\n", name);
